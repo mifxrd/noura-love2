@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نيرة - رسالة حب</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #0d1b2a, #1b263b); /* Navy Blue */
+      margin: 0;
+      padding: 30px 20px;
+      color: #f8f8f8;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #a78fbd; /* بنفسجي فخم */
+      margin-bottom: 10px;
+    }
+
+    .photo-container {
+      max-width: 240px;
+      margin: 25px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(167, 143, 189, 0.4);
+      border: 4px solid #a78fbd;
+    }
+
+    .photo-container img {
+      width: 100%;
+      display: block;
+    }
+
+    .message-box {
+      background-color: #f5f0e1; /* بيج ناعم */
+      color: #3e3e3e;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 12px;
+      font-size: 1.3em;
+      line-height: 1.8;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid #d6cfc2;
+    }
+
+    audio {
+      margin: 20px 0;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #a78fbd;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(167, 143, 189, 0.4);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #c0a8df;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 30px;
+      color: #ff0000; /* قلب أحمر */
+      animation-name: flyUp;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      pointer-events: none;
+      user-select: none;
+      z-index: 9999;
+    }
+
+    @keyframes flyUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-250px) translateX(var(--moveX)) scale(1.4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>نيرة... أنتي نبض الهدوء 💜</h1>
+
+  <div class="photo-container">
+    <img src="https://i.ibb.co/ksT2Sznn/Screenshot-com-instagram-android-edit.jpg" alt="صورة نيرة" />
+  </div>
+
+  <div class="message-box">
+    كل سنة وإنتي الحنية اللي بتنور أيامي،  
+    وجودك بيحول اللحظة العادية لذكرى خالدة،  
+    بحبك بحروف صافية، وروح هادية، وقلب بيقول نيرة دايمًا 💫
+  </div>
+
+  <audio controls>
+    <source src="https://files.catbox.moe/n0xzu9.mp3" type="audio/mpeg" />
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+
+  <audio controls>
+    <source src="https://files.catbox.moe/t1duy3.mp3" type="audio/mpeg" />
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+
+  <button id="celebrateBtn">من قلبي... ليكي 💌</button>
+
+  <script>
+    const btn = document.getElementById('celebrateBtn');
+    btn.addEventListener('click', () => {
+      for(let i = 0; i < 60; i++) {
+        createHeart();
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = (Math.random() * window.innerWidth) + 'px';
+      heart.style.top = (window.innerHeight + 40 + Math.random() * 100) + 'px';
+      heart.style.setProperty('--moveX', (Math.random() * 200 - 100) + 'px');
+      heart.style.fontSize = (22 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+  </script>
+
+</body>
+</html>
